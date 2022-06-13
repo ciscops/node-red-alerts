@@ -33,7 +33,7 @@ __You will need:__
 
 [Install](https://www.webex.com/downloads.html) Webex for your operating system
 
-### Developing
+### Webex Developer
 
 1. Sign up for a developer account [here](https://developer.webex.com/)
 2. Create a bot [here](https://developer.webex.com/my-apps/new) and fill out the fields
@@ -42,6 +42,10 @@ __You will need:__
 5. Get the room ID for that space by [here](https://developer.webex.com/docs/api/v1/rooms/list-rooms) and pressing run.
     1. The title should correspond with the name of your alerts space.
 ![alt text](images/listRoomsAPI.PNG "List Rooms API")
+
+## Email Set Up
+
+Set up an SMTP relay service for the email you would like to send alerts from. If you are using gmail, follow [this documentation](https://support.google.com/a/answer/176600?hl=en).
 
 ## Create Node-RED Flow
 
@@ -53,14 +57,18 @@ __You will need:__
 ![alt text](images/functionNode.PNG "Test Function Node")
 3. Make a second flow in Node-RED that looks like the example below
 ![alt text](images/flow2.PNG "Second Node-RED Flow")
-4. Configure the function node like the one below. Remember to replace the placeholders with your room ID and bot's access token.
-![alt text](images/functionNode2.PNG "Format Function Node")
-5. Configure the http request node like the following
+4. Configure the Webex function node. Remember to replace the placeholders with your room ID and bot's access token.
+![alt text](images/functionNode2.PNG "Webex Format Function Node")
+5. Configure the http request node
 ![alt text](images/httpNode.PNG "HTTP Node Configuration")
+6. Configure the email function node
+![alt text](images/emailFunctionNode.PNG "Email Format Function Node")
+7. Configure the email node
+![alt text](images/emailNode.PNG "Email Out Node Configuration")
 
 ## Testing
 
-Every thing should be set up so if you press the inject nodes, if the inject node's value is greater than or equal to 25, your Webex bot should send you a message.
+Every thing should be set up so if you press the inject nodes, if the inject node's value is greater than or equal to 25, your Webex bot should send you a message and your SMTP email should send you an email.
 
 ## Conclusion
 
